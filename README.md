@@ -63,6 +63,4 @@
 
 # Contact Info
 
-* Email: [Your Email Address]
-* LinkedIn: [Your LinkedIn Profile]
-* Portfolio: [Your Portfolio URL]
+* Email: conghu234@gmail.com
