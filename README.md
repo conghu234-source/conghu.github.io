@@ -1,5 +1,5 @@
 
-<img src="YOUR-PROFILE-IMAGE-URL" alt="Profile Photo" align="right" width="30%"/>
+<img src="profile.jpg" alt="Hu Cong Profile Photo" align="right" width="30%"/>
 
 # _Hu Cong_
 > _English Communication Undergraduate_
