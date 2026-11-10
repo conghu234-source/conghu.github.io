@@ -1,1 +1,455 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hu Cong | Personal CV</title>
+
+    <style>
+        :root {
+            --primary: #365F91;
+            --dark: #243449;
+            --light: #F4F7FB;
+            --accent: #8AAED0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #243449;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 1rem 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #8AAED0;
+        }
+
+        /* Page Layout */
+        .page {
+            display: none;
+            min-height: 100vh;
+            width: 100%;
+            padding: 100px 20px 40px;
+            box-sizing: border-box;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .active {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Home Page */
+        #splash {
+            background: #E8EFF7;
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            margin-bottom: 15px;
+        }
+
+        /* Content */
+        .content {
+            width: 100%;
+            max-width: 850px;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: #EDF3F9;
+            padding: 22px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid #DCE6F0;
+            padding-bottom: 8px;
+            margin-top: 25px;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        p, li {
+            line-height: 1.7;
+        }
+
+        .subtitle {
+            color: #64748B;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        /* Button */
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #243449;
+        }
+
+        /* Contact */
+        .contact-box {
+            background: #EDF3F9;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            box-sizing: border-box;
+        }
+
+        .contact-box a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                margin: 5px 8px;
+                font-size: 14px;
+            }
+
+            .content {
+                padding: 22px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a onclick="showPage('splash')">Home</a>
+        <a onclick="showPage('about')">Education</a>
+        <a onclick="showPage('experience')">Experience</a>
+        <a onclick="showPage('skills')">Skills</a>
+        <a onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <!-- 1. Home Page -->
+    <section id="splash" class="page active">
+
+        <img src="profile.jpg"
+             alt="Hu Cong Profile Photo"
+             class="profile-photo">
+
+        <h1>Hu Cong</h1>
+
+        <p class="subtitle">
+            English Communication Undergraduate
+        </p>
+
+        <p>
+            Payap University<br>
+            Chiang Mai, Thailand
+        </p>
+
+        <p style="max-width:650px; line-height:1.8;">
+            An English Communication undergraduate with a background
+            in Chinese Language and Literature. Experienced in content
+            writing, editing, and social media management. Interested
+            in digital communication, content creation, and
+            cross-cultural experiences.
+        </p>
+
+        <button class="btn"
+                style="margin-top:20px"
+                onclick="showPage('about')">
+            Explore My Profile
+        </button>
+
+    </section>
+
+    <!-- 2. Education -->
+    <section id="about" class="page">
+
+        <div class="content">
+
+            <h1>Education</h1>
+
+            <div class="card">
+                <h3>Payap University</h3>
+                <p>
+                    <strong>Bachelor's Degree in English Communication</strong><br>
+                    Thailand | 2025–2027
+                </p>
+                <p>
+                    GPA: Approximately 3.50
+                </p>
+                <p>
+                    Relevant Coursework: English Writing and Speaking.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Sichuan International Professional College</h3>
+                <p>
+                    <strong>Diploma in Chinese Language and Literature</strong><br>
+                    China | Graduated in 2025
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- 3. Professional and Volunteer Experience -->
+    <section id="experience" class="page">
+
+        <div class="content">
+
+            <h1>Experience</h1>
+
+            <div class="card">
+                <h3>Content Editing Assistant</h3>
+
+                <p>
+                    <strong>Polus International College, China</strong>
+                </p>
+
+                <ul>
+                    <li>
+                        Wrote and edited articles for the university's
+                        WeChat Official Account.
+                    </li>
+                    <li>
+                        Managed the content publishing process,
+                        including writing, editing, formatting,
+                        and publishing.
+                    </li>
+                    <li>
+                        Maintained daily updates and copywriting
+                        for the university's WeChat Moments.
+                    </li>
+                    <li>
+                        Created written and visual content for
+                        Xiaohongshu.
+                    </li>
+                    <li>
+                        Published social media content and assisted
+                        with daily account management.
+                    </li>
+                    <li>
+                        Supported university communication and
+                        promotional activities through digital
+                        content creation.
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Volunteer Experience</h2>
+
+            <div class="card">
+                <h3>Volunteer</h3>
+                <p>
+                    <strong>Rongshugen Organization</strong><br>
+                    Dehong, Yunnan, China
+                </p>
+                <p>
+                    Participated in a one-month volunteer program,
+                    helping children with homework and assisting
+                    with arts and crafts activities.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Volunteer</h3>
+                <p>
+                    <strong>Dayunongchang</strong><br>
+                    Mianyang, Sichuan, China
+                </p>
+                <p>
+                    Participated in a one-week volunteer program,
+                    providing companionship and daily-life support
+                    to children and documenting their activities
+                    and experiences.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- 4. Skills and Interests -->
+    <section id="skills" class="page">
+
+        <div class="content">
+
+            <h1>Skills & Interests</h1>
+
+            <div class="card">
+                <h3>Professional Skills</h3>
+                <ul>
+                    <li>Content Writing and Editing</li>
+                    <li>Social Media Content Creation</li>
+                    <li>WeChat Official Account Management</li>
+                    <li>Xiaohongshu Content Management</li>
+                    <li>Microsoft Word and Excel</li>
+                    <li>Basic Visual Content Design</li>
+                    <li>Communication and Interpersonal Skills</li>
+                    <li>Cross-cultural Communication</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Languages</h3>
+                <ul>
+                    <li>Chinese - Native</li>
+                    <li>English - IELTS 6.5</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Interests</h3>
+                <ul>
+                    <li>Playing Badminton</li>
+                    <li>Cross-cultural Communication</li>
+                    <li>Content Creation and Digital Media</li>
+                    <li>English Language Learning</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- 5. Contact -->
+    <section id="contact" class="page">
+
+        <h1>Contact Me</h1>
+
+        <p class="subtitle">
+            Thank you for visiting my personal profile.
+        </p>
+
+        <div class="contact-box">
+            <h3>Get in Touch</h3>
+            <p>
+                Email:
+                <a href="mailto:YOUR-EMAIL@example.com">
+                    conghu234@gmail.com
+                </a>
+            </p>
+        </div>
+
+    </section>
+
+    <!-- JavaScript Page Navigation -->
+    <script>
+
+        function showPage(pageId) {
+
+            const pages = document.querySelectorAll('.page');
+
+            pages.forEach(page =>
+                page.classList.remove('active')
+            );
+
+            document.getElementById(pageId).classList.add('active');
+
+            window.history.pushState(null, null, `#${pageId}`);
+        }
+
+        window.addEventListener('load', () => {
+
+            const hash = window.location.hash.replace('#', '');
+
+            if (hash && document.getElementById(hash)) {
+                showPage(hash);
+            }
+
+        });
+
+        window.onpopstate = () => {
+
+            const hash = window.location.hash.replace('#', '') || 'splash';
+
+            if (document.getElementById(hash)) {
+                showPage(hash);
+            } else {
+                showPage('splash');
+            }
+
+        };
+
+    </script>
+
+</body>
+</html>
