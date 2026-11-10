@@ -14,6 +14,10 @@
             --accent: #8AAED0;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -45,7 +49,7 @@
         }
 
         nav a:hover {
-            color: #8AAED0;
+            color: var(--accent);
         }
 
         /* Page Layout */
@@ -54,7 +58,6 @@
             min-height: 100vh;
             width: 100%;
             padding: 100px 20px 40px;
-            box-sizing: border-box;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -83,12 +86,20 @@
         }
 
         .profile-photo {
+            display: block;
             width: 160px;
             height: 190px;
             object-fit: cover;
             border-radius: 12px;
             border: 4px solid white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            margin: 0 auto 15px;
+        }
+
+        .image-error {
+            display: none;
+            color: #B91C1C;
+            font-size: 14px;
             margin-bottom: 15px;
         }
 
@@ -100,7 +111,6 @@
             padding: 35px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            box-sizing: border-box;
         }
 
         .card {
@@ -166,7 +176,6 @@
             text-align: center;
             width: 100%;
             max-width: 450px;
-            box-sizing: border-box;
         }
 
         .contact-box a {
@@ -196,19 +205,27 @@
 
     <!-- Navigation -->
     <nav>
-        <a onclick="showPage('splash')">Home</a>
-        <a onclick="showPage('about')">Education</a>
-        <a onclick="showPage('experience')">Experience</a>
-        <a onclick="showPage('skills')">Skills</a>
-        <a onclick="showPage('contact')">Contact</a>
+        <a href="#splash" onclick="showPage('splash')">Home</a>
+        <a href="#about" onclick="showPage('about')">Education</a>
+        <a href="#experience" onclick="showPage('experience')">Experience</a>
+        <a href="#skills" onclick="showPage('skills')">Skills</a>
+        <a href="#contact" onclick="showPage('contact')">Contact</a>
     </nav>
 
-    <!-- 1. Home Page -->
+    <!-- 1. Home -->
     <section id="splash" class="page active">
 
-        <img src="profile.jpg"
-             alt="Hu Cong Profile Photo"
-             class="profile-photo">
+        <img
+            src="./profile.jpg"
+            alt="Hu Cong Profile Photo"
+            class="profile-photo"
+            onerror="this.style.display='none'; document.getElementById('imageError').style.display='block';"
+        >
+
+        <p id="imageError" class="image-error">
+            Profile photo could not be loaded.
+            Please check the image file name and location.
+        </p>
 
         <h1>Hu Cong</h1>
 
@@ -246,13 +263,14 @@
 
             <div class="card">
                 <h3>Payap University</h3>
+
                 <p>
                     <strong>Bachelor's Degree in English Communication</strong><br>
                     Thailand | 2025–2027
                 </p>
-                <p>
-                    GPA: Approximately 3.50
-                </p>
+
+                <p>GPA: Approximately 3.50</p>
+
                 <p>
                     Relevant Coursework: English Writing and Speaking.
                 </p>
@@ -260,6 +278,7 @@
 
             <div class="card">
                 <h3>Sichuan International Professional College</h3>
+
                 <p>
                     <strong>Diploma in Chinese Language and Literature</strong><br>
                     China | Graduated in 2025
@@ -270,12 +289,12 @@
 
     </section>
 
-    <!-- 3. Professional and Volunteer Experience -->
+    <!-- 3. Experience -->
     <section id="experience" class="page">
 
         <div class="content">
 
-            <h1>Experience</h1>
+            <h1>Professional Experience</h1>
 
             <div class="card">
                 <h3>Content Editing Assistant</h3>
@@ -318,10 +337,12 @@
 
             <div class="card">
                 <h3>Volunteer</h3>
+
                 <p>
                     <strong>Rongshugen Organization</strong><br>
                     Dehong, Yunnan, China
                 </p>
+
                 <p>
                     Participated in a one-month volunteer program,
                     helping children with homework and assisting
@@ -331,10 +352,12 @@
 
             <div class="card">
                 <h3>Volunteer</h3>
+
                 <p>
                     <strong>Dayunongchang</strong><br>
                     Mianyang, Sichuan, China
                 </p>
+
                 <p>
                     Participated in a one-week volunteer program,
                     providing companionship and daily-life support
@@ -347,7 +370,7 @@
 
     </section>
 
-    <!-- 4. Skills and Interests -->
+    <!-- 4. Skills -->
     <section id="skills" class="page">
 
         <div class="content">
@@ -356,6 +379,7 @@
 
             <div class="card">
                 <h3>Professional Skills</h3>
+
                 <ul>
                     <li>Content Writing and Editing</li>
                     <li>Social Media Content Creation</li>
@@ -370,6 +394,7 @@
 
             <div class="card">
                 <h3>Languages</h3>
+
                 <ul>
                     <li>Chinese - Native</li>
                     <li>English - IELTS 6.5</li>
@@ -378,6 +403,7 @@
 
             <div class="card">
                 <h3>Interests</h3>
+
                 <ul>
                     <li>Playing Badminton</li>
                     <li>Cross-cultural Communication</li>
@@ -400,54 +426,69 @@
         </p>
 
         <div class="contact-box">
+
             <h3>Get in Touch</h3>
+
             <p>
                 Email:
-                <a href="mailto:YOUR-EMAIL@example.com">
+                <a href="mailto:conghu234@gmail.com">
                     conghu234@gmail.com
                 </a>
             </p>
+
         </div>
 
     </section>
 
-    <!-- JavaScript Page Navigation -->
+    <!-- JavaScript Navigation -->
     <script>
 
-        function showPage(pageId) {
+        function showPage(pageId, updateHistory = true) {
 
             const pages = document.querySelectorAll('.page');
 
-            pages.forEach(page =>
-                page.classList.remove('active')
-            );
+            const targetPage = document.getElementById(pageId);
 
-            document.getElementById(pageId).classList.add('active');
+            if (!targetPage) {
+                return;
+            }
 
-            window.history.pushState(null, null, `#${pageId}`);
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            targetPage.classList.add('active');
+
+            if (updateHistory) {
+                window.history.pushState(null, '', '#' + pageId);
+            }
         }
 
+        // Load the page based on the URL
         window.addEventListener('load', () => {
 
             const hash = window.location.hash.replace('#', '');
 
             if (hash && document.getElementById(hash)) {
-                showPage(hash);
+                showPage(hash, false);
+            } else {
+                showPage('splash', false);
             }
 
         });
 
-        window.onpopstate = () => {
+        // Browser back and forward buttons
+        window.addEventListener('popstate', () => {
 
-            const hash = window.location.hash.replace('#', '') || 'splash';
+            const hash = window.location.hash.replace('#', '');
 
-            if (document.getElementById(hash)) {
-                showPage(hash);
+            if (hash && document.getElementById(hash)) {
+                showPage(hash, false);
             } else {
-                showPage('splash');
+                showPage('splash', false);
             }
 
-        };
+        });
 
     </script>
 
